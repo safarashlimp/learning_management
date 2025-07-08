@@ -41,7 +41,16 @@ class VideoPlayerScreen extends StatelessWidget {
 
       if (videoId == null || videoId.isEmpty) {
         return Scaffold(
-          appBar: AppBar(title: const Text("YouTube Player")),
+          appBar: AppBar(
+            title: const Text(
+              "Video Player",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 27,
+                fontWeight: FontWeight.w200,
+              ),
+            ),
+          ),
           body: const Center(child: Text("Invalid YouTube video URL")),
         );
       }
@@ -52,7 +61,16 @@ class VideoPlayerScreen extends StatelessWidget {
       );
 
       return Scaffold(
-        appBar: AppBar(title: const Text("YouTube Player")),
+        appBar: AppBar(
+          title: const Text(
+            "Video Player",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 27,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+        ),
         body: _buildVideoContainer(
           child: YoutubePlayer(
             controller: controller,
@@ -66,7 +84,16 @@ class VideoPlayerScreen extends StatelessWidget {
         ..setJavaScriptMode(JavaScriptMode.unrestricted);
 
       return Scaffold(
-        appBar: AppBar(title: const Text("Vimeo Player")),
+        appBar: AppBar(
+          title: const Text(
+            "video Player",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 27,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+        ),
         body: _buildVideoContainer(
           child: WebViewWidget(controller: controller),
         ),

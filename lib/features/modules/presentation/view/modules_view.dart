@@ -1,4 +1,3 @@
-//new
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_management/features/modules/presentation/bloc/module_bloc.dart';
@@ -23,7 +22,7 @@ class ModulesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(subjectName)),
+      appBar: AppBar(title: Text(subjectName, style: const TextStyle(color: Colors.black,fontSize: 27,fontWeight:FontWeight.w200),)),
       body: BlocBuilder<ModuleBloc, ModuleState>(
         builder: (context, state) {
           return state.when(
@@ -37,7 +36,7 @@ class ModulesView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Banner with title overlay
+                  // Banner with title
                   Container(
                     margin: const EdgeInsets.all(16),
                     height: 180,
@@ -59,7 +58,7 @@ class ModulesView extends StatelessWidget {
                       child: Text(
                         subjectName.toUpperCase(),
                         style: const TextStyle(
-                          fontSize: 24,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -73,7 +72,10 @@ class ModulesView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       description,
-                      style: const TextStyle(fontSize: 14, color: Colors.black87),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.black87,
+                      ),
                       textAlign: TextAlign.justify,
                     ),
                   ),
@@ -83,7 +85,10 @@ class ModulesView extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       "Modules",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -98,14 +103,14 @@ class ModulesView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final module = modules[index];
                       return GestureDetector(
-                          onTap: () {
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (_) => VideoScreen(
                                 moduleId: module.id,
                                 moduleTitle: module.title,
-                                moduleDiscription:module.description
+                                moduleDiscription: module.description,
                               ),
                             ),
                           );
@@ -120,7 +125,7 @@ class ModulesView extends StatelessWidget {
                                 color: Colors.grey.shade300,
                                 blurRadius: 6,
                                 offset: const Offset(0, 3),
-                              )
+                              ),
                             ],
                           ),
                           child: Column(
@@ -148,7 +153,6 @@ class ModulesView extends StatelessWidget {
                       );
                     },
                   ),
-
                   const SizedBox(height: 30),
                 ],
               ),

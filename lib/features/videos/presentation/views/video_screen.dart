@@ -20,7 +20,16 @@ class VideoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(moduleTitle)),
+      appBar: AppBar(
+        title: Text(
+          moduleTitle,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 27,
+            fontWeight: FontWeight.w200,
+          ),
+        ),
+      ),
       body: BlocBuilder<VideoBloc, VideoState>(
         builder: (context, state) {
           return state.when(
