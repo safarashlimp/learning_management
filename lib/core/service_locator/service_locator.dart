@@ -4,8 +4,8 @@ import 'package:learning_management/features/modules/data/repository/module_repo
 import 'package:learning_management/features/modules/domain/repository/module_repository.dart';
 import 'package:learning_management/features/subject/data/data_source/subject_data_source.dart';
 import 'package:learning_management/features/subject/data/repository/subject_repository_impl.dart';
-import 'package:learning_management/features/subject/domain/reository/subject_repository.dart';
 import 'package:get_it/get_it.dart';
+import 'package:learning_management/features/subject/domain/repository/subject_repository.dart';
 import 'package:learning_management/features/videos/data/data_source/video_data_source.dart';
 import 'package:learning_management/features/videos/data/repository/video_repository_impl.dart';
 import 'package:learning_management/features/videos/domain/repository/video_repository.dart';

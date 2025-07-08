@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:learning_management/features/subject/domain/reository/subject_repository.dart';
+import 'package:learning_management/features/subject/domain/repository/subject_repository.dart';
 import 'package:learning_management/features/subject/presentation/bloc/subject_event.dart';
 import 'package:learning_management/features/subject/presentation/bloc/subjet_state.dart';
 

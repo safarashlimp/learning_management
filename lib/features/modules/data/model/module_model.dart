@@ -1,5 +1,3 @@
-//new
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'module_model.freezed.dart';
 part 'module_model.g.dart';
