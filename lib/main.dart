@@ -8,17 +8,9 @@ import 'package:learning_management/features/subject/presentation/bloc/subject_b
 import 'package:learning_management/features/subject/presentation/view/home_page.dart';
 import 'package:learning_management/features/videos/domain/repository/video_repository.dart';
 import 'package:learning_management/features/videos/presentation/bloc/video_bloc.dart';
- import 'package:provider/provider.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-// import 'presentation/routes/app_routes.dart';
-// import 'presentation/providers/subject_provider.dart';
-// import 'data/datasources/subject_remote_datasource.dart';
-// import 'data/repositories/subject_repository_impl.dart';
-// import 'domain/usecases/get_subjects.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  
- 
   setupServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
@@ -27,22 +19,22 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-   
-
     return MultiProvider(
       providers: [
-       BlocProvider(create: (context)=> SubjectBloc(getIt<SubjectRepository>())),
-        BlocProvider(create: (context)=> ModuleBloc(getIt<ModuleRepository>())),
-         BlocProvider(create: (context)=> VideoBloc(getIt<VideoRepository>())),
+        BlocProvider(
+          create: (context) => SubjectBloc(getIt<SubjectRepository>()),
+        ),
+        BlocProvider(
+          create: (context) => ModuleBloc(getIt<ModuleRepository>()),
+        ),
+        BlocProvider(create: (context) => VideoBloc(getIt<VideoRepository>())),
       ],
-    child:  MaterialApp(
+      child: MaterialApp(
         title: 'LMS App',
         theme: ThemeData(primarySwatch: Colors.blue),
         initialRoute: '/',
-    routes: {
-    '/': (context) => const HomeScreen(),
-  },
-     ),
+        routes: {'/': (context) => const HomeScreen()},
+      ),
     );
   }
 }
