@@ -15,16 +15,11 @@ class ModuleBloc extends Bloc<ModuleEvent, ModuleState> {
 
       final response = await repository.fetchModules();
 
-      // response.fold(
-      //   (failure) => emit(ModuleState.error(failure: failure)),
-      //   (module) => emit(ModuleState.loaded(modules: module)),
-      // );
-
       response.fold((failure) => emit(ModuleState.error(failure: failure)), (
         subjectList,
       ) {
         final moduleList = subjectList
-            .map(
+            .map( 
               (subject) => ModuleEntity(
                 id: subject.id,
                 title: subject.title,

@@ -1,128 +1,3 @@
-// // modules_screen.dart
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:learning_management/features/modules/presentation/bloc/module_bloc.dart';
-// import 'package:learning_management/features/modules/presentation/bloc/module_event.dart';
-// import 'package:learning_management/features/modules/presentation/bloc/module_state.dart';
-
-// class ModulesView extends StatelessWidget {
-//   final int subjectId;
-//   final String subjectName;
-//   final String subjectImageUrl;
-//   final String description;
-
-//   const ModulesView({
-//     required this.subjectId,
-//     required this.subjectName,
-//     required this.subjectImageUrl,
-//     required this.description,
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text(subjectName)),
-//       body: BlocBuilder<ModuleBloc, ModuleState>(
-//         builder: (context, state) {
-//           return state.when(
-//             initial: () {
-//               context.read<ModuleBloc>().add(const ModuleEvent.fetchModules());
-//               return const Center(child: CircularProgressIndicator());
-//             },
-//             loading: () => const Center(child: CircularProgressIndicator()),
-//             error: (failure) => Center(child: Text(failure.message)),
-//             loaded: (modules) => SingleChildScrollView(
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   Container(
-//                     margin: const EdgeInsets.all(16),
-//                     height: 150,
-//                     width: double.infinity,
-//                     decoration: BoxDecoration(
-//                       borderRadius: BorderRadius.circular(16),
-//                       image: DecorationImage(
-//                         image: NetworkImage(subjectImageUrl),
-//                         fit: BoxFit.cover,
-//                       ),
-//                     ),
-//                     alignment: Alignment.center,
-//                     child: Container(
-//                       padding: const EdgeInsets.all(12),
-//                       color: Colors.black.withOpacity(0.4),
-//                       child: Text(
-//                         subjectName.toUpperCase(),
-//                         style: const TextStyle(
-//                             fontSize: 24,
-//                             fontWeight: FontWeight.bold,
-//                             color: Colors.white),
-//                       ),
-//                     ),
-//                   ),
-//                   const Padding(
-//                     padding: EdgeInsets.symmetric(horizontal: 16.0),
-//                     child: Text(
-//                       "Modules",
-//                       style: TextStyle(
-//                           fontSize: 18, fontWeight: FontWeight.bold),
-//                     ),
-//                   ),
-//                   const SizedBox(height: 10),
-//                   ListView.separated(
-//                     shrinkWrap: true,
-//                     physics: const NeverScrollableScrollPhysics(),
-//                     padding: const EdgeInsets.symmetric(horizontal: 16),
-//                     itemCount: modules.length,
-//                     separatorBuilder: (_, __) => const SizedBox(height: 10),
-//                     itemBuilder: (context, index) {
-//                       final module = modules[index];
-//                       return Container(
-//                         padding: const EdgeInsets.all(12),
-//                         decoration: BoxDecoration(
-//                           color: Colors.grey[100],
-//                           borderRadius: BorderRadius.circular(12),
-//                           boxShadow: [
-//                             BoxShadow(
-//                               color: Colors.grey.shade300,
-//                               blurRadius: 4,
-//                               offset: const Offset(0, 2),
-//                             )
-//                           ],
-//                         ),
-//                         child: Column(
-//                           crossAxisAlignment: CrossAxisAlignment.start,
-//                           children: [
-//                             Text(
-//                               module.title,
-//                               style: const TextStyle(
-//                                 fontWeight: FontWeight.bold,
-//                                 fontSize: 16,
-//                               ),
-//                             ),
-//                             const SizedBox(height: 6),
-//                             Text(
-//                               module.description,
-//                               style: const TextStyle(fontSize: 14),
-//                             ),
-//                           ],
-//                         ),
-//                       );
-//                     },
-//                   ),
-//                   const SizedBox(height: 20),
-//                 ],
-//               ),
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
-
-
-//new
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_management/features/modules/presentation/bloc/module_bloc.dart';
@@ -147,7 +22,7 @@ class ModulesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(subjectName)),
+      appBar: AppBar(title: Text(subjectName, style: const TextStyle(color: Colors.black,fontSize: 27,fontWeight:FontWeight.w200),)),
       body: BlocBuilder<ModuleBloc, ModuleState>(
         builder: (context, state) {
           return state.when(
@@ -161,7 +36,7 @@ class ModulesView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Banner with title overlay
+                  // Banner with title
                   Container(
                     margin: const EdgeInsets.all(16),
                     height: 180,
@@ -183,7 +58,7 @@ class ModulesView extends StatelessWidget {
                       child: Text(
                         subjectName.toUpperCase(),
                         style: const TextStyle(
-                          fontSize: 24,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -197,7 +72,10 @@ class ModulesView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       description,
-                      style: const TextStyle(fontSize: 14, color: Colors.black87),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.black87,
+                      ),
                       textAlign: TextAlign.justify,
                     ),
                   ),
@@ -207,7 +85,10 @@ class ModulesView extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       "Modules",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -222,13 +103,14 @@ class ModulesView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final module = modules[index];
                       return GestureDetector(
-                          onTap: () {
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (_) => VideoScreen(
-                                // moduleId: module.id,
-                                // moduleTitle: module.title,
+                                moduleId: module.id,
+                                moduleTitle: module.title,
+                                moduleDiscription: module.description,
                               ),
                             ),
                           );
@@ -243,7 +125,7 @@ class ModulesView extends StatelessWidget {
                                 color: Colors.grey.shade300,
                                 blurRadius: 6,
                                 offset: const Offset(0, 3),
-                              )
+                              ),
                             ],
                           ),
                           child: Column(
@@ -271,7 +153,6 @@ class ModulesView extends StatelessWidget {
                       );
                     },
                   ),
-
                   const SizedBox(height: 30),
                 ],
               ),
