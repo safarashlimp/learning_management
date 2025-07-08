@@ -4,7 +4,7 @@
 
   import 'package:http/http.dart' as http;
   import 'package:learning_management/core/error/errors.dart';
-  import 'package:learning_management/subject/data/model/subject_model.dart';
+  import 'package:learning_management/features/subject/data/model/subject_model.dart';
 
   // adjust import as needed
 

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:learning_management/core/error/errors.dart';
-import 'package:learning_management/subject/domain/entities/subject_entities.dart';
+import 'package:learning_management/features/subject/domain/entities/subject_entities.dart';
 part 'subjet_state.freezed.dart';
 @freezed
  class SubjectState with _$SubjectState  {
