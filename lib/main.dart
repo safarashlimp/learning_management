@@ -6,7 +6,10 @@ import 'package:learning_management/features/modules/presentation/bloc/module_bl
 import 'package:learning_management/features/subject/domain/reository/subject_repository.dart';
 import 'package:learning_management/features/subject/presentation/bloc/subject_bloc.dart';
 import 'package:learning_management/features/subject/presentation/view/home_page.dart';
+import 'package:learning_management/features/videos/domain/repository/video_repository.dart';
+import 'package:learning_management/features/videos/presentation/bloc/video_bloc.dart';
  import 'package:provider/provider.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 // import 'presentation/routes/app_routes.dart';
 // import 'presentation/providers/subject_provider.dart';
 // import 'data/datasources/subject_remote_datasource.dart';
@@ -14,7 +17,10 @@ import 'package:learning_management/features/subject/presentation/view/home_page
 // import 'domain/usecases/get_subjects.dart';
 
 void main() {
+  
+ 
   setupServiceLocator();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -27,6 +33,7 @@ class MyApp extends StatelessWidget {
       providers: [
        BlocProvider(create: (context)=> SubjectBloc(getIt<SubjectRepository>())),
         BlocProvider(create: (context)=> ModuleBloc(getIt<ModuleRepository>())),
+         BlocProvider(create: (context)=> VideoBloc(getIt<VideoRepository>())),
       ],
     child:  MaterialApp(
         title: 'LMS App',
