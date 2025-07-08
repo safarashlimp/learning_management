@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_management/core/service_locator/service_locator.dart';
 import 'package:learning_management/features/modules/domain/repository/module_repository.dart';
 import 'package:learning_management/features/modules/presentation/bloc/module_bloc.dart';
+import 'package:learning_management/features/splash_screen/splash_screen.dart';
 import 'package:learning_management/features/subject/domain/repository/subject_repository.dart';
 import 'package:learning_management/features/subject/presentation/bloc/subject_bloc.dart';
 import 'package:learning_management/features/subject/presentation/view/home_page.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         title: 'LMS App',
         theme: ThemeData(primarySwatch: Colors.blue),
         initialRoute: '/',
-        routes: {'/': (context) => const HomeScreen()},
+        routes: {'/': (context) => const SplashScreen()},
       ),
     );
   }
